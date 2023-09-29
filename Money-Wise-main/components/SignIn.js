@@ -64,7 +64,7 @@ function SignIn() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="border border-gray-300 rounded-lg p-2 text-white" // Cor do texto ajustada para branco
+                                className="border border-gray-300 rounded-lg p-2 text-black" // Cor do texto ajustada para branco
                             />
                             <div className="relative border border-gray-300 rounded-lg">
                                 <input
@@ -73,7 +73,7 @@ function SignIn() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
-                                    className="w-full p-2 text-white" // Cor do texto ajustada para branco
+                                    className="w-full p-2 text-black" // Cor do texto ajustada para branco
                                 />
                                 <button
                                     type="button"

@@ -43,7 +43,7 @@ function IncomeModal({ show, onClose }) {
         <Modal isOpen={show} onClose={onClose}>
             <form onSubmit={addIncomeHandler} className='flex flex-col gap-4'>
                 <div className='input-group'>
-                    <label htmlFor='amount'>Quanto deseja adiconar?</label>
+                    <label htmlFor='amount'>Quanto pretende inserir?</label>
                     <input
                         ref={amountRef}
                         type='number'
