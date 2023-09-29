@@ -98,7 +98,7 @@ function SignIn() {
                                 value={emailRegister}
                                 onChange={(e) => setEmailRegister(e.target.value)}
                                 required
-                                className="border border-gray-300 rounded-lg p-2 text-white" // Cor do texto ajustada para branco
+                                className="border border-gray-300 rounded-lg p-2 text-black" // Cor do texto ajustada para preto
                             />
                             <div className="relative border border-gray-300 rounded-lg">
                                 <input
@@ -107,7 +107,7 @@ function SignIn() {
                                     value={passwordRegister}
                                     onChange={(e) => setPasswordRegister(e.target.value)}
                                     required
-                                    className="w-full p-2 text-white" // Cor do texto ajustada para branco
+                                    className="w-full p-2 text-black" // Cor do texto ajustada para preto
                                 />
                                 <button
                                     type="button"
