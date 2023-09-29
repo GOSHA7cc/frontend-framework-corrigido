@@ -4,8 +4,8 @@ import { useState, useContext, useRef } from "react"
 import { dateFormatter } from "@/lib/utils"
 import { v4 as uuidv4 } from "uuid"
 
-function OrçamentoModal({ show, onClose }) {
-    const [orçamentoAmount, setOrçamentoAmount] = useState("")
+function BudgetModal({ show, onClose }) {
+    const [expenseAmount, setExpenseAmount] = useState("")
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [showAddExpense, setShowAddExpense] = useState(false)
 
@@ -39,9 +39,8 @@ function OrçamentoModal({ show, onClose }) {
         } catch (error) {
             console.log(error.message)
         }
-
-
     }
+
     const addCategoryHandler = async () => {
         const title = titleRef.current.value
         const color = colorRef.current.value
@@ -52,14 +51,12 @@ function OrçamentoModal({ show, onClose }) {
         } catch (error) {
             console.log(error.message)
         }
-
-
     }
 
     return (
         <Modal isOpen={show} onClose={onClose}>
             <div className="flex flex-col gap-4">
-                <label>Insira um valor</label>
+                <label>Qual é o valor para orçamento?</label>
                 <input
                     type="number"
                     min={0.01}
@@ -83,7 +80,6 @@ function OrçamentoModal({ show, onClose }) {
                     {showAddExpense && (
                         <div className="flex flex-col">
                             <input className=""
-
                                 type="text"
                                 placeholder="Insira o nome"
                                 ref={titleRef}
@@ -118,7 +114,6 @@ function OrçamentoModal({ show, onClose }) {
                                         <div style={{ backgroundColor: expense.color, }} className="w-[25px] h-[25px] rounded-full" />
                                         <h4 className="capitalize">{expense.title}</h4>
                                     </div>
-
                                 </div>
                             </button>
                         )
@@ -135,5 +130,4 @@ function OrçamentoModal({ show, onClose }) {
     )
 }
 
-
-export default ExpenseModal
+export default BudgetModal;

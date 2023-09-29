@@ -2,12 +2,16 @@
 import { useState, useContext, useEffect } from 'react';
 import { financeContext } from "@/lib/store/finance-context";
 import { authContext } from '@/lib/store/auth-context';
+import { budgetContext } from '@/lib/store/budget-context';
 import { currencyFormatter, dateFormatter } from '@/lib/utils';
 import ExpenseCategoryItem from '@/components/ExpenseCategoryItem';
 import IncomeModal from '@/components/modals/IncomeModal';
 import ExpenseModal from "@/components/modals/ExpenseModal";
-import InvestimentModal from "@/components/modals/InvestimentModal";
+import InvestmentModal from "@/components/modals/InvestmentModal";
+import BudgetModal from '@/components/modals/BudgetModal';
 import SignIn from '@/components/SignIn';
+
+
 
 
 // Charts
@@ -18,10 +22,16 @@ ChartJS.register(ArcElement, Tooltip, Legend)
 export default function Home() {
   const [incomeModal, setIncomeModal] = useState(false);
   const [expenseModal, setExpenseModal] = useState(false);
-  const [investimentModal, setInvestimentModal] = useState(false);
+  const [investmentModal, setInvestmentModal] = useState(false);
+  const [budgetModal, setBudgetModal] = useState(false);
+ 
   const [balance, setBalance] = useState(0)
   const { expenses, income } = useContext(financeContext)
   const { user, loading } = useContext(authContext)
+  const { budgets } = useContext(budgetContext)
+  
+
+  
 
   useEffect(() => {
     const newBalance =
@@ -51,7 +61,8 @@ export default function Home() {
       {/* Modals */}
       <IncomeModal show={incomeModal} onClose={setIncomeModal} />
       <ExpenseModal show={expenseModal} onClose={setExpenseModal} />
-      <ExpenseModal show={investimentModal} onClose={setInvestimentModal} />
+      <InvestmentModal show={investmentModal} onClose={setInvestmentModal} />
+      <BudgetModal show={budgetModal} onClose={setBudgetModal} />
 
       {/* Body of Application */}
       <main className="container max-w-2xl px-4 py-6 mx-auto">
@@ -64,8 +75,8 @@ export default function Home() {
         <section className="flex items-center gap-2 py-3">
           <button onClick={() => { setIncomeModal(true) }} className="btn btn-primary-outline">Entrada</button>
           <button onClick={() => { setExpenseModal(true) }} className="btn btn-primary">Saída</button>
-          <button onClick={() => { setExpenseModal(true) }} className="btn btn-primary">Orçamento</button>
-          <button onClick={() => { setInvestimentModal(true) }} className="btn btn-primary">investimentos</button>
+          <button onClick={() => { setBudgetModal(true) }} className="btn btn-primary">Orçamento</button>
+          <button onClick={() => { setInvestmentModal(true) }} className="btn btn-primary">investimentos</button>
         </section>
 
         {/* Expenses */}
@@ -104,6 +115,7 @@ export default function Home() {
             }} />
           </div>
         </section>
+        
       </main>
     </>
   )
