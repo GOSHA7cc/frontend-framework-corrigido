@@ -59,7 +59,7 @@ function ExpenseModal({ show, onClose }) {
     return (
         <Modal isOpen={show} onClose={onClose}>
             <div className="flex flex-col gap-4">
-                <label>Insira um valor</label>
+                <label>Qual é o valor que você gostaria de sacar?</label>
                 <input
                     type="number"
                     min={0.01}
